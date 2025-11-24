@@ -1,0 +1,123 @@
+:root {
+    --bg-color: #121212;
+    --panel-bg: rgba(30, 30, 30, 0.8);
+    --text-color: #ffffff;
+    --accent-color: #007AFF;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --toolbar-height: 70px;
+    --sidebar-width: 280px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+    height: 100vh;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#toolbar {
+    height: var(--toolbar-height);
+    background-color: var(--panel-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+    z-index: 10;
+}
+
+#workspace {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+#asset-browser {
+    width: var(--sidebar-width);
+    background-color: var(--panel-bg);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 10;
+}
+
+#canvas-container {
+    flex: 1;
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+}
+
+#properties-panel {
+    width: var(--sidebar-width);
+    background-color: var(--panel-bg);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid var(--border-color);
+    padding: 20px;
+    z-index: 10;
+    display: none;
+    /* Hide for now until implemented */
+}
+
+/* Utility Classes */
+.btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid transparent;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.4);
+}
+
+.asset-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.asset-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    color: #eee;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.asset-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+}
