@@ -13,6 +13,9 @@
         src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script crossorigin="anonymous"
         src="https://unpkg.com/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+    <!-- Loaders -->
+    <script crossorigin="anonymous" src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -39,6 +42,9 @@
     </div>
     <script>
         window.onerror = function (msg, url, line, col, error) {
+            // Ignore generic Script error from cross-origin or unknown sources
+            if (msg === 'Script error.' && line === 0) return;
+
             var div = document.getElementById('error-log');
             div.style.display = 'block';
             div.innerHTML += '<div>' + msg + ' at ' + line + ':' + col + '</div>';
